@@ -4,6 +4,8 @@ import {
   useGLTF,
   Float,
   ContactShadows,
+  Html,
+  Text,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 
@@ -33,8 +35,36 @@ export default function Experience() {
         }}
       >
         <Float rotationIntensity={0.4}>
-          <primitive position-y={-1.2} object={laptop.scene} />
+          <rectAreaLight
+            width={25}
+            height={1.65}
+            intensity={65}
+            color="#ff6900"
+            rotation={[0.1, Math.PI, 0]}
+            position={[0, 0.55, -1.15]}
+          />
+          <primitive position-y={-1.2} object={laptop.scene}>
+            <Html
+              transform
+              wrapperClass="htmlScreen"
+              distanceFactor={1.17}
+              position={[0, 1.56, -1.4]}
+              rotation-x={-0.256}
+            >
+              <iframe src="https://bruno-simon.com/html/" />
+            </Html>
+          </primitive>
         </Float>
+        <Text
+          font="./bangers-v20-latin-regular.woff"
+          fontSize={1}
+          position={[2, 0.75, 0.75]}
+          rotation-y={-1.25}
+          maxWidth={2}
+          textAlign="center"
+        >
+          DOUGLAS CRAWFORD
+        </Text>
       </PresentationControls>
 
       <ContactShadows position-y={-1.4} opacity={0.4} scale={5} blur={2.4} />
